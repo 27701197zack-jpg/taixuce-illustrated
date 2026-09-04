@@ -368,28 +368,109 @@ body::before{
 </style>
 
 <style id="ce-style">
-.ce-img{display:block;margin:8px auto 4px;width:min(66%,250px);max-width:82%;height:auto;
-  border-radius:10px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 26px rgba(70,55,30,.16);}
+.ce-img{display:block;margin:10px auto 6px;width:min(70%,280px);max-width:88%;height:auto;
+  border-radius:10px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 12px 28px rgba(70,55,30,.16);}
 .herald .fig{width:auto;flex:none}
 .herald .fig img.fig-img{width:70px;height:96px;object-fit:cover;display:block;border-radius:8px;
   border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 6px 16px rgba(70,55,30,.14);}
-.ce-cover img,.ce-out img{display:block;width:min(74%,320px);height:auto;margin:16px auto;
-  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 14px 34px rgba(70,55,30,.20);}
+.ce-cover img,.ce-out img{display:block;width:100%;max-width:340px;height:auto;margin:0 auto;
+  border-radius:10px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 14px 34px rgba(70,55,30,.20);}
 .ce-out{margin:22px 0 2px}
-.si-img{display:block;width:min(78%,340px);max-width:92%;height:auto;margin:16px auto 4px;
-  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 26px rgba(70,55,30,.16);}
-.gate2-img{display:block;width:min(70%,300px);max-width:88%;height:auto;margin:18px auto 4px;
-  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 26px rgba(70,55,30,.16);}
-.q-banner{display:block;width:min(62%,240px);max-width:78%;height:116px;object-fit:cover;object-position:50% 32%;
-  margin:4px auto 14px;border-radius:11px;border:1px solid var(--line,rgba(80,60,30,.16));box-shadow:0 8px 20px rgba(70,55,30,.14);}
-.xing-img{display:block;width:min(72%,300px);max-width:90%;height:auto;margin:6px auto 14px;
-  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 24px rgba(70,55,30,.15);}
-.qiji-img{display:block;width:min(72%,300px);max-width:90%;height:auto;margin:12px auto 6px;
-  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 24px rgba(70,55,30,.15);}
-.rx-img{float:left;width:56px;height:56px;object-fit:cover;border-radius:9px;margin:1px 12px 8px 0;
-  border:1px solid var(--line,rgba(80,60,30,.16));box-shadow:0 6px 14px rgba(70,55,30,.13);}
-.rx5{overflow:hidden}
-@media print{ .ce-img,.ce-cover img,.ce-out img{box-shadow:none;} }
+
+/* 图文并置：竖画衬文 */
+.split{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+@media(min-width:700px){.split{grid-template-columns:minmax(210px,290px) 1fr;gap:26px;align-items:center}}
+.split .art{position:relative;text-align:center}
+.split .art img{display:block;width:100%;max-width:320px;height:auto;margin:0 auto;
+  border:1px solid var(--line);border-radius:8px;background:#faf6ec;box-shadow:0 14px 32px rgba(70,55,30,.16)}
+.split .body{min-width:0}
+.art-cap{margin-top:9px;font-family:var(--kai);font-size:12px;letter-spacing:.22em;color:var(--ink3)}
+
+/* 开场 */
+.pro-hero{border:1px solid var(--line);background:linear-gradient(180deg,#fbf7ee,#f3ecdc);
+  padding:18px;border-radius:6px;box-shadow:0 18px 44px rgba(70,55,30,.10);margin:14px 0 6px}
+@media(min-width:700px){.pro-hero{padding:26px}}
+
+/* 司幕 */
+.si-panel{display:grid;grid-template-columns:1fr;gap:14px;align-items:start}
+@media(min-width:640px){.si-panel{grid-template-columns:190px 1fr;gap:20px}}
+.si-art img{display:block;width:100%;max-width:200px;height:auto;margin:0 auto;
+  border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(70,55,30,.15)}
+.si-copy{min-width:0}
+
+/* 宫门 */
+.gate-art img{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;
+  border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(70,55,30,.15)}
+
+/* 题目 */
+.q-hero{display:grid;grid-template-columns:1fr;gap:12px;align-items:start;margin-bottom:2px}
+@media(min-width:640px){.q-hero{grid-template-columns:1fr 150px;gap:20px;align-items:center}}
+.q-side img{display:block;width:100%;max-width:200px;height:auto;margin:0 auto;
+  border:1px solid var(--line);border-radius:7px;box-shadow:0 10px 24px rgba(70,55,30,.13)}
+@media(min-width:640px){.q-side img{max-width:150px}}
+
+/* 结果 · 又副册 / 气机 */
+.xing-img,.qiji-img{display:block;width:100%;max-width:300px;height:auto;margin:0 auto;
+  border:1px solid var(--line);border-radius:8px;box-shadow:0 12px 28px rgba(70,55,30,.15)}
+.juan-split{display:grid;grid-template-columns:1fr;gap:16px;align-items:start}
+@media(min-width:700px){.juan-split{grid-template-columns:220px 1fr;gap:24px;align-items:start}}
+
+/* 心药五层 */
+.rx5{display:flex;gap:13px;align-items:flex-start;border-left:2px solid var(--zhe);
+  padding:10px 0 10px 13px;margin:12px 0}
+.rx-img{flex:none;width:60px;height:60px;object-fit:cover;border-radius:9px;
+  border:1px solid var(--line);box-shadow:0 6px 14px rgba(70,55,30,.12)}
+.rx-tx{min-width:0}
+.rx-tx .lv{font-size:12px;color:var(--zhe);letter-spacing:.2em;margin-bottom:3px}
+.rx-tx .tx{font-size:14px;line-height:2}
+
+/* ---------- 装饰：边角 / 压眉头 / 划分线 ---------- */
+.juan .inner,.sec,.pro-hero,.si-head,.chest,.q-box,.gate-hero,.leaf .inner{position:relative}
+.juan .inner::before,.sec::before,.pro-hero::before,.si-head::before,
+.chest::before,.q-box::before,.gate-hero::before,.leaf .inner::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.5;
+  background:
+    linear-gradient(var(--gold),var(--gold)) left 8px top 8px/16px 1px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) left 8px top 8px/1px 16px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right 8px top 8px/16px 1px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right 8px top 8px/1px 16px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) left 8px bottom 8px/16px 1px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) left 8px bottom 8px/1px 16px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right 8px bottom 8px/16px 1px no-repeat,
+    linear-gradient(var(--gold),var(--gold)) right 8px bottom 8px/1px 16px no-repeat;
+}
+
+/* 划分线：中线加方胜小记 */
+.rule{position:relative}
+.rule::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;
+  transform:translate(-50%,-50%) rotate(45deg);background:var(--zhu);opacity:.75;
+  box-shadow:0 0 0 1px #fff;}
+
+/* 压眉头：三册题名左右衬线 */
+.jh{display:flex;align-items:center;justify-content:center;gap:12px}
+.jh::before,.jh::after{content:"";flex:none;width:42px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--zhe));}
+.jh::after{background:linear-gradient(90deg,var(--zhe),transparent)}
+
+/* 压眉头：司名左右衬线 */
+.si-head .nm{display:flex;align-items:center;justify-content:center;gap:14px;text-indent:0}
+.si-head .nm::before,.si-head .nm::after{content:"";flex:none;width:38px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--zhe));}
+.si-head .nm::after{background:linear-gradient(90deg,var(--zhe),transparent)}
+
+/* 压眉头：章节标题前加小方胜 */
+.sec-h .t::before{content:"";display:inline-block;width:6px;height:6px;margin-right:9px;
+  background:var(--zhu);transform:rotate(45deg);vertical-align:1px}
+
+/* 划分线：章节标题底线中加方胜 */
+.sec-h{position:relative}
+.sec-h::after{content:"";position:absolute;left:50%;bottom:-4px;width:7px;height:7px;
+  transform:translateX(-50%) rotate(45deg);background:var(--zhu);box-shadow:0 0 0 1px #fdfbf5}
+
+/* 宫门并入 split 后，去掉其原有大留白 */
+.split .gate{padding:0}
+
+@media print{ .ce-img,.ce-cover img,.ce-out img,.split .art img,.si-art img,.gate-art img,.q-side img,.xing-img,.qiji-img,.rx-img{box-shadow:none;} }
 </style>
 </head>
 <body data-page-node-id="hI1Kt1p3F9NmYQvSU0Wj4T">
@@ -1446,19 +1527,25 @@ function render(){
 function viewPrologue(){
   return '' +
   '<div class="prologue">' +
-    '<div class="xu-loc vert">离恨天之上 · 灌愁海之中</div>' +
-    '<h1>太 虚 册</h1>' +
-    '<div class="sub">一 场 心 的 历 险</div>' +
-    '<div class="ce-cover" data-ce-cover></div>' +
-    '<div class="rule"></div>' +
-    '<div class="poem">假作真时真亦假<br>无为有处有还无</div>' +
-    '<div class="quote">宝玉倦怠，遂悠悠荡荡随了秦氏，至一所在——<br>' +
-      '但见<b>朱栏白石，绿树清溪</b>，真是人迹希逢，飞尘不到。<br>' +
-      '<span style="font-size:13px;color:var(--ink3)">入得门来，一缕幽香不知何所闻——' +
-      '此香尘世所无，名<b style="color:var(--zhu)">群芳髓</b>；' +
-      '案上仙茗一盏，唤作<b style="color:var(--zhu)">千红一窟</b>。</span></div>' +
-    '<div class="rule" style="margin-top:26px"></div>' +
-    '<p style="font-size:14px;color:var(--ink2);line-height:2.1;max-width:26em;margin:0 auto 4px">' +
+    '<div class="split pro-hero">' +
+      '<div class="art">' +
+        '<div class="ce-cover" data-ce-cover></div>' +
+        '<div class="art-cap">太 虚 幻 境 · 入 梦</div>' +
+      '</div>' +
+      '<div class="body">' +
+        '<div class="xu-loc vert">离恨天之上 · 灌愁海之中</div>' +
+        '<h1>太 虚 册</h1>' +
+        '<div class="sub">一 场 心 的 历 险</div>' +
+        '<div class="rule"></div>' +
+        '<div class="poem">假作真时真亦假<br>无为有处有还无</div>' +
+        '<div class="quote">宝玉倦怠，遂悠悠荡荡随了秦氏，至一所在——<br>' +
+          '但见<b>朱栏白石，绿树清溪</b>，真是人迹希逢，飞尘不到。<br>' +
+          '<span style="font-size:13px;color:var(--ink3)">入得门来，一缕幽香不知何所闻——' +
+          '此香尘世所无，名<b style="color:var(--zhu)">群芳髓</b>；' +
+          '案上仙茗一盏，唤作<b style="color:var(--zhu)">千红一窟</b>。</span></div>' +
+      '</div>' +
+    '</div>' +
+    '<p style="font-size:14px;color:var(--ink2);line-height:2.1;max-width:26em;margin:18px auto 4px">' +
       '太虚幻境之中，有司名曰<b>薄命</b>。司里十数个大橱，皆用封条封着，' +
       '内贮普天之下众女儿的终身册籍。<br>' +
       '你一司一司走过去，一橱一橱打开来。<br>' +
@@ -1496,16 +1583,20 @@ function viewGate(){
       '<button class="btn" id="g1">过 牌 坊</button></div>';
   }
   return '' +
-  '<div class="gate">' +
-    '<div class="board"><div class="t">孽 海 情 天</div></div>' +
-    '<div class="couplet">' +
-      '<div class="vert">厚地高天堪叹古今情不尽</div>' +
-      '<div class="vert">痴男怨女可怜风月债难偿</div>' +
-    '</div>' +
-    '<div class="sub">宫 门 之 上 · 又 一 副 对 联</div>' +
-    '<div class="quote" style="margin:18px auto 0;max-width:24em">转过牌坊，二层门内，两边配殿皆有匾额——' +
-      '痴情司、结怨司、朝啼司、夜怨司、春感司、秋悲司。<br>' +
-      '你只拣「<b>薄命司</b>」三字，推门进去。</div>' +
+  '<div class="split gate-hero">' +
+    '<div class="art"><div class="gate-art"><div data-gate2></div></div>' +
+      '<div class="art-cap">宫 门 · 孽 海 情 天</div></div>' +
+    '<div class="body"><div class="gate">' +
+      '<div class="board"><div class="t">孽 海 情 天</div></div>' +
+      '<div class="couplet">' +
+        '<div class="vert">厚地高天堪叹古今情不尽</div>' +
+        '<div class="vert">痴男怨女可怜风月债难偿</div>' +
+      '</div>' +
+      '<div class="sub">宫 门 之 上 · 又 一 副 对 联</div>' +
+      '<div class="quote" style="margin:18px auto 0;max-width:24em">转过牌坊，二层门内，两边配殿皆有匾额——' +
+        '痴情司、结怨司、朝啼司、夜怨司、春感司、秋悲司。<br>' +
+        '你只拣「<b>薄命司</b>」三字，推门进去。</div>' +
+    '</div></div>' +
   '</div>' +
   '<div class="herald">' +
     '<div class="fig">'+figSVG('jinghuan')+'</div>' +
@@ -1541,11 +1632,17 @@ function viewSi(k){
     '<div class="strip">'+s.chest.replace('此橱封条：','')+'</div>' +
     '<div class="ct">此橱封条：'+s.chest.replace('此橱封条：','')+'　·　内贮 '+qs+' 问</div>' +
   '</div>' +
-  '<div class="herald">' +
-    '<div class="fig">'+figSVG(s.herald)+'</div>' +
-    '<div><div class="who">'+h.name+'</div>' +
-    '<div class="ti">'+h.ti+'</div>' +
-    '<div class="say"><em>'+s.say+'</em><br><span class="dim" style="font-size:12.5px">'+h.desc+'</span></div></div>' +
+  '<div class="si-panel">' +
+    '<div class="si-art"><div class="si-img-slot" data-si-img="'+k+'"></div>' +
+      '<div class="art-cap">'+s.no+' · '+s.nm+'</div></div>' +
+    '<div class="si-copy">' +
+      '<div class="herald">' +
+        '<div class="fig">'+figSVG(s.herald)+'</div>' +
+        '<div><div class="who">'+h.name+'</div>' +
+        '<div class="ti">'+h.ti+'</div>' +
+        '<div class="say"><em>'+s.say+'</em><br><span class="dim" style="font-size:12.5px">'+h.desc+'</span></div></div>' +
+      '</div>' +
+    '</div>' +
   '</div>' +
   navBar('开 橱');
 }
@@ -1630,9 +1727,14 @@ function renderQuestion(echo, silent, fresh){
        '<span class="bar"><i style="width:'+Math.round((Q.indexOf(q))/(Q.length-1)*100)+'%"></i></span>' +
        '<span class="lb">'+(Q.indexOf(q)+1)+' / '+Q.length+'</span></div>';
   H += '<div class="q-box">';
+  H += '<div class="q-hero">';
+  H += '<div class="q-main">';
   H += '<div class="q-act">'+s.no+' · '+s.nm+'　'+h.name+'</div>';
   H += '<div class="q-t">'+esc(q.q).replace(/\n/g,'<br>')+'</div>';
   if(q.hint) H += '<div class="q-hint">'+esc(q.hint)+'</div>';
+  H += '</div>';
+  H += '<div class="q-side"><div class="q-banner-slot" data-q-banner="'+q.si+'"></div></div>';
+  H += '</div>';
 
   if(q.type==='single' || q.type==='multi'){
     H += '<div id="optBox">';
@@ -1803,7 +1905,9 @@ function viewResult(){
   /* ═══ 又副册 · 形 ═══ */
   H += '<div class="juan"><div class="inner">';
   H += '<div class="jh">又 副 册 · 形</div>';
-  H += '<div class="pic">'+siPic(mainX==='mu'?'chiqing':(mainX==='huo'?'yeyuan':(mainX==='tu'?'jieyuan':(mainX==='jin'?'qiubei':'zhaoti'))))+'</div>';
+  H += '<div class="juan-split">';
+  H += '<div class="art"><div class="xing-slot" data-xing></div><div class="art-cap">画 上 一 座 山 河</div></div>';
+  H += '<div class="body">';
   H += '<div class="panci">一身之上，先败的是<span class="zh">'+ZANG_N[z1]+(z2?ZANG_N[z2]:'')+'</span></div>';
   H += '<dl class="kv">';
   H += '<dt>病　位</dt><dd><b>'+(z2?ZANG_N[z1]+ZANG_N[z2]+'同病':ZANG_N[z1]+'气先伤')+'</b>　'+ZANG_DESC[z1]+'</dd>';
@@ -1820,6 +1924,7 @@ function viewResult(){
   H += '</div>';
   H += '<div class="note-box" style="margin-top:14px"><b>身上记下的这些：</b>' +
        (V.ev.length? V.ev.map(esc).join(' · ') : '（无特别记录）') + '</div>';
+  H += '</div></div>';
   H += '</div></div>';
 
   /* ═══ 副册 · 气 ═══ */
@@ -1871,8 +1976,12 @@ function viewResult(){
   /* ═══ 肆 · 心药五层 ═══ */
   H += '<div class="sec"><div class="sec-h"><span class="n">肆</span><span class="t">心 药 五 层</span>' +
        '<span class="r">'+XING_N[mainX]+'型 之 方</span></div>';
-  RX5[mainX].forEach(function(r){
-    H += '<div class="rx5"><div class="lv">'+r[0]+'</div><div class="tx">'+esc(r[1])+'</div></div>';
+  var RXK = ['body','act','emotion','faith','mission'];
+  RX5[mainX].forEach(function(r,i){
+    H += '<div class="rx5">' +
+         '<div class="rx-slot" data-rx="'+RXK[i]+'"></div>' +
+         '<div class="rx-tx"><div class="lv">'+r[0]+'</div><div class="tx">'+esc(r[1])+'</div></div>' +
+         '</div>';
   });
   H += '<div class="note-box">前三层调的是病，后两层补的是人。<b>只做第一层是最常见的漏项</b>——' +
        '第五层「使命」那一味，补的是价值感，也是一个人真正能站住的地方。</div>';
@@ -1881,7 +1990,10 @@ function viewResult(){
   /* ═══ 伍 · 气机定级 ═══ */
   H += '<div class="sec"><div class="sec-h"><span class="n">伍</span><span class="t">气 机 定 级</span>' +
        '<span class="r">'+RLV[lv]+'</span></div>';
-  H += riskText(lv);
+  H += '<div class="split">';
+  H += '<div class="art"><div class="qiji-slot" data-qiji></div><div class="art-cap">云 锁 弦 紧 · 云 散 气 清</div></div>';
+  H += '<div class="body">'+riskText(lv)+'</div>';
+  H += '</div>';
   H += '</div>';
 
   /* ═══ 陆 · 必须说的话 ═══ */
@@ -2081,52 +2193,21 @@ window.motif=function(k,cl,opt){var s=(window.__IMG.ce&&window.__IMG.ce[k])||'';
 window.figSVG=function(k){var s=(window.__IMG.g&&window.__IMG.g[k])||'';return '<img class="fig-img" alt="" loading="lazy" src="'+s+'">';};
 (function(){
   var IMG = window.__IMG;
-  var RX_KEYS = ['body','act','emotion','faith','mission'];
+  function im(src, cls){ return src ? '<img class="'+cls+'" alt="" loading="lazy" src="'+src+'">' : ''; }
   function fill(){
-    document.querySelectorAll('[data-ce-cover]').forEach(function(el){if(!el.querySelector('img'))el.innerHTML='<img alt="" src="'+IMG.cover+'">';});
-    document.querySelectorAll('[data-ce-out]').forEach(function(el){if(!el.querySelector('img'))el.innerHTML='<img alt="" loading="lazy" src="'+IMG.out+'">';});
-  }
-  function decorate(){
-    var host=document.getElementById('app'); if(!host) return;
-    if(typeof stage==='undefined') return;
-    if(stage==='gate' && gateStep===1){
-      var g=host.querySelector('.gate');
-      if(g && !g.parentNode.querySelector('.gate2-img')){g.insertAdjacentHTML('afterend','<img class="gate2-img" alt="" loading="lazy" src="'+IMG.gate2+'">');}
-    }
-    else if(stage==='quiz' && typeof FLOW!=='undefined' && FLOW[fi]){
-      var f=FLOW[fi];
-      if(f.kind==='si'){
-        var head=host.querySelector('.si-head');
-        if(head && !head.parentNode.querySelector('.si-img') && IMG.si[f.si]){head.insertAdjacentHTML('afterend','<img class="si-img" alt="" loading="lazy" src="'+IMG.si[f.si]+'">');}
-      }
-      else if(f.kind==='q'){
-        var qb=host.querySelector('.q-box');
-        if(qb && !qb.querySelector('.q-banner') && IMG.si[f.q.si]){qb.insertAdjacentHTML('afterbegin','<img class="q-banner" alt="" loading="lazy" src="'+IMG.si[f.q.si]+'">');}
-      }
-    }
-    else if(stage==='result'){
-      var juans=host.querySelectorAll('.juan');
-      if(juans.length && IMG.xing){
-        var first=juans[0];
-        if(!first.querySelector('.xing-img')){
-          var jh=first.querySelector('.jh');
-          if(jh) jh.insertAdjacentHTML('afterend','<img class="xing-img" alt="" loading="lazy" src="'+IMG.xing+'">');
-        }
-      }
-      host.querySelectorAll('.rx5').forEach(function(r,i){
-        if(!r.querySelector('.rx-img') && IMG.rx[RX_KEYS[i]]){r.insertAdjacentHTML('afterbegin','<img class="rx-img" alt="" loading="lazy" src="'+IMG.rx[RX_KEYS[i]]+'">');}
-      });
-      host.querySelectorAll('.sec-h').forEach(function(h){
-        if(h.textContent.indexOf('气 机 定 级')>=0 && IMG.qiji){
-          if(!h.parentNode.querySelector('.qiji-img')){h.insertAdjacentHTML('afterend','<img class="qiji-img" alt="" loading="lazy" src="'+IMG.qiji+'">');}
-        }
-      });
-    }
+    document.querySelectorAll('[data-ce-cover]').forEach(function(el){ if(!el.querySelector('img')) el.innerHTML = im(IMG.cover,'ce-cover-img'); });
+    document.querySelectorAll('[data-ce-out]').forEach(function(el){ if(!el.querySelector('img')) el.innerHTML = im(IMG.out,'ce-out-img'); });
+    document.querySelectorAll('[data-gate2]').forEach(function(el){ if(!el.querySelector('img')) el.innerHTML = im(IMG.gate2,'gate2-img'); });
+    document.querySelectorAll('[data-si-img]').forEach(function(el){ var k=el.getAttribute('data-si-img'); if(!el.querySelector('img')) el.innerHTML = im(IMG.si&&IMG.si[k],'si-img'); });
+    document.querySelectorAll('[data-q-banner]').forEach(function(el){ var k=el.getAttribute('data-q-banner'); if(!el.querySelector('img')) el.innerHTML = im(IMG.si&&IMG.si[k],'q-banner'); });
+    document.querySelectorAll('[data-xing]').forEach(function(el){ if(!el.querySelector('img')) el.innerHTML = im(IMG.xing,'xing-img'); });
+    document.querySelectorAll('[data-qiji]').forEach(function(el){ if(!el.querySelector('img')) el.innerHTML = im(IMG.qiji,'qiji-img'); });
+    document.querySelectorAll('[data-rx]').forEach(function(el){ var k=el.getAttribute('data-rx'); if(!el.querySelector('img')) el.innerHTML = im(IMG.rx&&IMG.rx[k],'rx-img'); });
   }
   function boot(){
-    fill(); decorate();
+    fill();
     var host=document.getElementById('app')||document.body;
-    new MutationObserver(function(){fill(); decorate();}).observe(host,{childList:true,subtree:true});
+    new MutationObserver(fill).observe(host,{childList:true,subtree:true});
   }
   if(document.readyState!=='loading') boot(); else document.addEventListener('DOMContentLoaded', boot);
 })();

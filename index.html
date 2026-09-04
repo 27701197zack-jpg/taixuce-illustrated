@@ -376,6 +376,19 @@ body::before{
 .ce-cover img,.ce-out img{display:block;width:min(74%,320px);height:auto;margin:16px auto;
   border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 14px 34px rgba(70,55,30,.20);}
 .ce-out{margin:22px 0 2px}
+.si-img{display:block;width:min(78%,340px);max-width:92%;height:auto;margin:16px auto 4px;
+  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 26px rgba(70,55,30,.16);}
+.gate2-img{display:block;width:min(70%,300px);max-width:88%;height:auto;margin:18px auto 4px;
+  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 26px rgba(70,55,30,.16);}
+.q-banner{display:block;width:min(62%,240px);max-width:78%;height:116px;object-fit:cover;object-position:50% 32%;
+  margin:4px auto 14px;border-radius:11px;border:1px solid var(--line,rgba(80,60,30,.16));box-shadow:0 8px 20px rgba(70,55,30,.14);}
+.xing-img{display:block;width:min(72%,300px);max-width:90%;height:auto;margin:6px auto 14px;
+  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 24px rgba(70,55,30,.15);}
+.qiji-img{display:block;width:min(72%,300px);max-width:90%;height:auto;margin:12px auto 6px;
+  border-radius:12px;border:1px solid var(--line,rgba(80,60,30,.18));box-shadow:0 10px 24px rgba(70,55,30,.15);}
+.rx-img{float:left;width:56px;height:56px;object-fit:cover;border-radius:9px;margin:1px 12px 8px 0;
+  border:1px solid var(--line,rgba(80,60,30,.16));box-shadow:0 6px 14px rgba(70,55,30,.13);}
+.rx5{overflow:hidden}
 @media print{ .ce-img,.ce-cover img,.ce-out img{box-shadow:none;} }
 </style>
 </head>
@@ -2054,14 +2067,69 @@ function veilClose(go){
 </script>
 
 <script id="ce-override">
-window.__IMG = {"ce": {"mu": "images/ce_mu.jpg", "huo": "images/ce_huo.jpg", "tu": "images/ce_tu.jpg", "jin": "images/ce_jin.jpg", "shui": "images/ce_shui.jpg"}, "g": {"zhong": "images/g_zhong.jpg", "chimeng": "images/g_chimeng.jpg", "yinchou": "images/g_yinchou.jpg", "duhen": "images/g_duhen.jpg", "jinghuan": "images/g_jinghuan.jpg"}, "cover": "images/cover.jpg", "out": "images/chu_meng.jpg"};
+window.__IMG = {
+  "ce": {"mu":"images/ce_mu.jpg","huo":"images/ce_huo.jpg","tu":"images/ce_tu.jpg","jin":"images/ce_jin.jpg","shui":"images/ce_shui.jpg"},
+  "g": {"zhong":"images/g_zhong.jpg","chimeng":"images/g_chimeng.jpg","yinchou":"images/g_yinchou.jpg","duhen":"images/g_duhen.jpg","jinghuan":"images/g_jinghuan.jpg"},
+  "cover":"images/cover.jpg","out":"images/chu_meng.jpg",
+  "gate2":"images/g_gate2.jpg",
+  "si": {"chiqing":"images/si_chiqing.jpg","jieyuan":"images/si_jieyuan.jpg","zhaoti":"images/si_zhaoti.jpg","yeyuan":"images/si_yeyuan.jpg","chungan":"images/si_chungan.jpg","qiubei":"images/si_qiubei.jpg","xingxin":"images/si_xingxin.jpg"},
+  "xing":"images/ce_xing.jpg",
+  "qiji":"images/ce_qiji.jpg",
+  "rx": {"body":"images/rx_body.jpg","act":"images/rx_act.jpg","emotion":"images/rx_emotion.jpg","faith":"images/rx_faith.jpg","mission":"images/rx_mission.jpg"}
+};
 window.motif=function(k,cl,opt){var s=(window.__IMG.ce&&window.__IMG.ce[k])||'';return '<img class="ce-img" alt="" loading="lazy" src="'+s+'">';};
 window.figSVG=function(k){var s=(window.__IMG.g&&window.__IMG.g[k])||'';return '<img class="fig-img" alt="" loading="lazy" src="'+s+'">';};
-(function(){function fill(){
-  document.querySelectorAll('[data-ce-cover]').forEach(function(el){if(!el.querySelector('img'))el.innerHTML='<img alt="" src="'+window.__IMG.cover+'">';});
-  document.querySelectorAll('[data-ce-out]').forEach(function(el){if(!el.querySelector('img'))el.innerHTML='<img alt="" loading="lazy" src="'+window.__IMG.out+'">';});}
- function boot(){fill();var host=document.getElementById('app')||document.body;new MutationObserver(function(){fill();}).observe(host,{childList:true,subtree:true});}
- if(document.readyState!=='loading')boot();else document.addEventListener('DOMContentLoaded',boot);})();
+(function(){
+  var IMG = window.__IMG;
+  var RX_KEYS = ['body','act','emotion','faith','mission'];
+  function fill(){
+    document.querySelectorAll('[data-ce-cover]').forEach(function(el){if(!el.querySelector('img'))el.innerHTML='<img alt="" src="'+IMG.cover+'">';});
+    document.querySelectorAll('[data-ce-out]').forEach(function(el){if(!el.querySelector('img'))el.innerHTML='<img alt="" loading="lazy" src="'+IMG.out+'">';});
+  }
+  function decorate(){
+    var host=document.getElementById('app'); if(!host) return;
+    if(typeof stage==='undefined') return;
+    if(stage==='gate' && gateStep===1){
+      var g=host.querySelector('.gate');
+      if(g && !g.parentNode.querySelector('.gate2-img')){g.insertAdjacentHTML('afterend','<img class="gate2-img" alt="" loading="lazy" src="'+IMG.gate2+'">');}
+    }
+    else if(stage==='quiz' && typeof FLOW!=='undefined' && FLOW[fi]){
+      var f=FLOW[fi];
+      if(f.kind==='si'){
+        var head=host.querySelector('.si-head');
+        if(head && !head.parentNode.querySelector('.si-img') && IMG.si[f.si]){head.insertAdjacentHTML('afterend','<img class="si-img" alt="" loading="lazy" src="'+IMG.si[f.si]+'">');}
+      }
+      else if(f.kind==='q'){
+        var qb=host.querySelector('.q-box');
+        if(qb && !qb.querySelector('.q-banner') && IMG.si[f.q.si]){qb.insertAdjacentHTML('afterbegin','<img class="q-banner" alt="" loading="lazy" src="'+IMG.si[f.q.si]+'">');}
+      }
+    }
+    else if(stage==='result'){
+      var juans=host.querySelectorAll('.juan');
+      if(juans.length && IMG.xing){
+        var first=juans[0];
+        if(!first.querySelector('.xing-img')){
+          var jh=first.querySelector('.jh');
+          if(jh) jh.insertAdjacentHTML('afterend','<img class="xing-img" alt="" loading="lazy" src="'+IMG.xing+'">');
+        }
+      }
+      host.querySelectorAll('.rx5').forEach(function(r,i){
+        if(!r.querySelector('.rx-img') && IMG.rx[RX_KEYS[i]]){r.insertAdjacentHTML('afterbegin','<img class="rx-img" alt="" loading="lazy" src="'+IMG.rx[RX_KEYS[i]]+'">');}
+      });
+      host.querySelectorAll('.sec-h').forEach(function(h){
+        if(h.textContent.indexOf('气 机 定 级')>=0 && IMG.qiji){
+          if(!h.parentNode.querySelector('.qiji-img')){h.insertAdjacentHTML('afterend','<img class="qiji-img" alt="" loading="lazy" src="'+IMG.qiji+'">');}
+        }
+      });
+    }
+  }
+  function boot(){
+    fill(); decorate();
+    var host=document.getElementById('app')||document.body;
+    new MutationObserver(function(){fill(); decorate();}).observe(host,{childList:true,subtree:true});
+  }
+  if(document.readyState!=='loading') boot(); else document.addEventListener('DOMContentLoaded', boot);
+})();
 </script>
 </body>
 </html>
